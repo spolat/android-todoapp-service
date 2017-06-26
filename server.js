@@ -2,8 +2,13 @@ const express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
       logger = require('morgan'),
-      db = require('mongoose').connect(require('./config').database , {useMongoClient : true}).connection,
-      PORT = process.env.PORT || 3000;
+      mongoose = require("mongoose"),
+      config = require("./config"),
+      PORT = process.env.PORT || 3000,
+      connectionUrl = config.database;
+      mongoose.connect(connectionUrl , {useMongoClient : true});
+const db = mongoose.connection;
+
 
 
 app.use(bodyParser.json());
@@ -28,7 +33,7 @@ app.post('/getNotes' , (req,res) => {
 });
 
 app.post('/deleteNote' , (req,res) => {
-  
+
 });
 
 
