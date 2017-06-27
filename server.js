@@ -26,7 +26,7 @@ app.post('/saveNote' , (req,res) => {
 });
 
 app.post('/getNotes' , (req,res) => {
-  db.collection('notes').find({} , (err,result) => {
+  db.collection('notes').find().toArray((err,result) => {
     if(err) return res.status(500).json(err);
     return res.status(200).json(result);
   });
