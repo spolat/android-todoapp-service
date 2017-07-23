@@ -1,3 +1,3 @@
 module.exports = {
-  "database" : "mongodb://root:123456@ds139242.mlab.com:39242/androidappdb"
+  "database" : "mongodb://127.0.0.1:27017"
 };
